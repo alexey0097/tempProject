@@ -25,5 +25,8 @@ services:
       monitoring:
         aliases:
           - prometheus
+    depends_on:
+      grafana:
+        condition: service_started
 networks:
   monitoring:
