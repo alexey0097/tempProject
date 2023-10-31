@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   grafana:
-    build: './config/grafana'
+    build: 'images/grafana-image'
     ports:
       - 3000:3000
     volumes:
@@ -15,11 +15,10 @@ services:
         aliases:
           - grafana
   prometheus:
-    image: prom/prometheus
+    build: 'images/prometheus-image'
     ports:
       - 9001:9090
     volumes:
-      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
       - ./prometheus:/prometheus
     networks:
       monitoring:
